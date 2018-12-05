@@ -41,9 +41,9 @@ while(until):
 
 
 	action = input("\nWhat action do you want to take? View, Add, Change\n      ")
-	if not ((action.lower() != 'view') or (action.lower() != 'add') or (action.lower() != 'change')):
-		print("Please enter a valid command!! ~~~~~~~")
-		continue
+# 	if not ((action.lower() != 'view') or (action.lower() != 'add') or (action.lower() != 'change')):
+# 		print("Please enter a valid command!! ~~~~~~~")
+# 		continue
 	if action.lower() == 'view':
 		print("Current Schedule")
 		for timed_item in schedule:
