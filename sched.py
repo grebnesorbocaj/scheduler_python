@@ -2,7 +2,7 @@ class sched_item:
 	def __init__(self, title, time):
 		self.title = title
 		self.time = time
-		self.detail = "No detail"
+		self.detail = "To Do!"
 
 	def update_time(self, new_time):
 		self.time = new_time
