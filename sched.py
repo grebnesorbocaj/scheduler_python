@@ -33,17 +33,14 @@ def add_sched_item():
 	new_sched_item = sched_item(new_title, new_time)
 	schedule.append(new_sched_item)
 	schedule.sort(key=time_return)
-	
+
 add_sched_item()
 until = True
 while(until):
-	
+
 
 
 	action = input("\nWhat action do you want to take? View, Add, Change\n      ")
-# 	if not ((action.lower() != 'view') or (action.lower() != 'add') or (action.lower() != 'change')):
-# 		print("Please enter a valid command!! ~~~~~~~")
-# 		continue
 	if action.lower() == 'view':
 		print("Current Schedule")
 		for timed_item in schedule:
@@ -51,12 +48,18 @@ while(until):
 	elif action.lower() == 'add':
 		add_sched_item()
 	elif action.lower() == 'change':
-		to_change = input("Change time of which item? ")
-		new_time = input("What do you want the new time to be? ")
-		for time_item in schedule:
-			if time_item.time == to_change:
-				time_item.update_time(new_time)
-
-
-
-	
+		to_change_which = input("Which item do you want to change? (Time of) ")
+		to_change_what = input("What do you want to change? (Time/Details) \n")
+		if to_change_what.lower() == 'time':
+			new_time = input("What do you want the new time to be? ")
+			for time_item in schedule:
+				if time_item.time == to_change_which:
+					time_item.update_time(new_time)
+					schedule.sort(key=time_return)
+		elif to_change_what.lower() == 'details':
+			new_detail = input("What do you want the detail to say? \n")
+			for time_item in schedule:
+				if time_item.time == to_change_which:
+					time_item.update_detail(new_detail)
+	elif action.lower() == 'quit':
+		until = False
